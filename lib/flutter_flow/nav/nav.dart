@@ -35,17 +35,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => HomePageWidget(),
+      errorBuilder: (context, state) => LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => HomePageWidget(),
-        ),
-        FFRoute(
-          name: 'HomePage',
-          path: '/homePage',
-          builder: (context, params) => HomePageWidget(),
+          builder: (context, _) => LoginWidget(),
         ),
         FFRoute(
           name: 'HomePageCopy',
@@ -53,14 +48,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => HomePageCopyWidget(),
         ),
         FFRoute(
-          name: 'HomePageCopy2',
-          path: '/homePageCopy2',
-          builder: (context, params) => HomePageCopy2Widget(),
+          name: 'Menu',
+          path: '/menu',
+          builder: (context, params) => MenuWidget(),
         ),
         FFRoute(
-          name: 'CapturaICC',
-          path: '/capturaICC',
-          builder: (context, params) => CapturaICCWidget(),
+          name: 'Wizzard',
+          path: '/wizzard',
+          builder: (context, params) => WizzardWidget(),
+        ),
+        FFRoute(
+          name: 'Login',
+          path: '/login',
+          builder: (context, params) => LoginWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
